@@ -24,4 +24,5 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 config remote add origin git@github.com:StevenCHowell/config.git
 config pull origin master
+git push --set-upstream origin master
 ```
