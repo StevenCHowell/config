@@ -152,10 +152,10 @@ alias mountiso='mount -o loop -t iso9660 -r'
 #f following is the archive file name
 #z filter the archive through gzip
 #j filter the archive through bzip2
-alias targz="\tar -cvfz"
-alias tarbz="\tar -cvfj"
-alias untargz="\tar -xvfz"
-alias untarbz="\tar -xvfj"
+alias targz="\tar cvfz"
+alias tarbz="\tar cvfj"
+alias untargz="\tar xvfz"
+alias untarbz="\tar xvfj"
 
 # alias cvsslapper='cvs -d /u24/local/cvsroot/programs'
 # alias cvspap='cvs -d /u24/local/cvsroot/papers '
