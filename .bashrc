@@ -9,7 +9,7 @@ alias config='/mingw64/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # aws
 export GPU_EC2_PEM=~/.ssh/gpu-ec2-instance.pem
-alias ec2g='ssh -i $GPU_EC2_PEM'
+alias ec2g='~/bin/ec2g.sh'
 alias ec2stop='aws ec2 stop-instances --instance-ids i-0ffccfb4ce40e551d'
 alias ec2start='aws ec2 start-instances --instance-ids i-0ffccfb4ce40e551d'
 alias ec2ip="aws ec2 describe-instances --filters Name=instance-id,Values=i-0ffccfb4ce40e551d --region us-west-2 --output text --query 'Reservations[*].Instances[*].NetworkInterfaces[*].Association.PublicIp'"
@@ -28,11 +28,11 @@ source ~/.mintty-solarized-dark
 # network items
 alias ifconfig='ipconfig'
 
-alias bashrc='vim ~/.bashrc && sourc ~/.bashrc'
+alias bashrc='vim ~/.bashrc && source ~/.bashrc'
 
-# alias ..='cd ..'
-# alias ...='cd ../..'
-# alias ...='cd ../../..'
-# alias ....='cd ../../../..'
-# alias /='cd /'
-# alias ~='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ...='cd ../../..'
+alias ....='cd ../../../..'
+alias /='cd /'
+alias ~='cd ~'
