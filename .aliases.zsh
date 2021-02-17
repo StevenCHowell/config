@@ -202,10 +202,10 @@ dedup(){
     done
 }
 
-pushd(){
-    builtin pushd "$@"
-    dedup
-}
+# pushd(){
+#     builtin pushd "$@"
+#     dedup
+# }
 
 
 if [[ ( `hostname` != falcon ) ]]; then
