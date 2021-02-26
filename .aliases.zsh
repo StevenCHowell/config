@@ -127,6 +127,9 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
+# NVIDIA top 
+alias nvidia-top='watch -n0.5 nvidia-smi'
+
 ## pass options to free
 alias meminfo='free -m -l -t'
 
