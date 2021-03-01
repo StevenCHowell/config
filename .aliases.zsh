@@ -104,9 +104,10 @@ alias h='history'
 alias j='jobs -l'
 
 alias path='echo -e ${PATH//:/\\n}'
-alias now='date +"%T"'
+# alias now='date +"%T"'
+alias now='date +"%H%M%S"'
 alias nowtime=now
-alias nowdate='date +"%d-%m-%Y"'
+alias nowdate='date +"%Y%m%d"'
 
 alias vi=vim
 alias svi='sudo vi'
