@@ -10,7 +10,7 @@ import:
     timid: no
     write: yes
 asciify_path: yes
-ignore: ._* *~ .DS_Store
+ignore: ._* *~ .DS_Store .*
 art_filename: albumart
 threaded: yes
 ui:
