@@ -15,9 +15,8 @@ art_filename: albumart
 threaded: yes
 ui:
     color: yes
-
 paths:
-    default: $genre/$albumartist/$album/$track $title
-    signleton: $genre/Singletons/$artist - $title
+    default: $albumartist/$album/$track $title
+    signleton: Singletons/$artist - $title
     albumtype:soundtrack: Soundtracks/$album/$track $title
-    comp: $genre/Compilations/$album/$track $title
+    comp: Compilations/$album/$track $title
