@@ -1,0 +1,23 @@
+directory: ~/music/beets_music
+library: ~/music/musiclibrary.db
+import:
+    write: yes
+    move: yes
+    log: beets.log
+    languages: en
+    resume: yes
+    quiet_fallback: skip
+    timid: no
+    write: yes
+asciify_path: yes
+ignore: ._* *~ .DS_Store
+art_filename: albumart
+threaded: yes
+ui:
+    color: yes
+
+paths:
+    default: $genre/$albumartist/$album/$track $title
+    signleton: $genre/Singletons/$artist - $title
+    albumtype:soundtrack: Soundtracks/$album/$track $title
+    comp: $genre/Compilations/$album/$track $title
