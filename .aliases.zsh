@@ -1,6 +1,13 @@
 # added for dot-file repo: config
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# aws profile
+alias aws_d="export AWS_PROFILE=default"
+alias aws_u="export AWS_PROFILE=usg"
+
+# pytest
+alias pytest='pytest --disable-warnings'
+
 # add to path
 export PATH=~/bin:/snap/bin:$PATH
 
@@ -128,7 +135,7 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-# NVIDIA top 
+# NVIDIA top
 alias nvidia-top='watch -n0.5 nvidia-smi'
 
 ## pass options to free
