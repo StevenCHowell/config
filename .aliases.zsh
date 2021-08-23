@@ -219,7 +219,7 @@ dedup(){
 # }
 
 
-if [ "{$HOSTNAME}" != falcon ] && [ "${HOSTNAME}" != "HOST-CalAI-013" ]; then
+if [ "{$HOSTNAME}" != falcon ] && [ "${HOSTNAME}" != "HOST-CalAI-013" ] && [ "${HOSTNAME}" != "VM-CAILAB-013" ]; then
     "unsetopt autopushd"  # oh-my-zsh turns this on
 fi
 
