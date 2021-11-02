@@ -219,10 +219,6 @@ dedup(){
 # }
 
 
-if [ "{$HOSTNAME}" != falcon ] && [ "${HOSTNAME}" != "HOST-CalAI-013" ] && [ "${HOSTNAME}" != "VM-CAILAB-013" ]; then
-    "unsetopt autopushd"  # oh-my-zsh turns this on
-fi
-
 # alias source_beet="source ~/Music/venv/bin/activate"
 # alias crysol="crysol -lm 50 -fb 18" #xray default
 # alias crysol="crysol -lm 15 -fb 18" #my default (lm is important for MASSHA but takes much longer)
