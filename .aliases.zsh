@@ -1,6 +1,9 @@
 # added for dot-file repo: config
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# arlis
+export PATH=~/data/arlis/catkin-docker:$PATH
+
 # aws profile
 alias aws_d="export AWS_PROFILE=default"
 alias aws_u="export AWS_PROFILE=usg"
@@ -27,7 +30,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # alias update="sudo apt-get update && sudo apt-get -y -m dist-upgrade"
-alias update="sudo apt update && sudo apt -y -m upgrade"
+# alias update="sudo apt update && sudo apt -y -m upgrade"
+alias update="sudo pkcon update"
 alias update_clean="sudo apt update && sudo apt -y -m dist-upgrade && sudo apt -y autoremove && sudo apt -y autoclean"
 
 export EDITOR="emacs -nw"
