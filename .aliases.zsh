@@ -11,6 +11,10 @@ alias pytest='pytest --disable-warnings'
 # add to path
 export PATH=~/bin:/snap/bin:$PATH
 
+# for docker
+export PATH=/usr/bin:$PATH
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/schowell/data/myPrograms/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -27,7 +31,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # alias update="sudo apt-get update && sudo apt-get -y -m dist-upgrade"
-alias update="sudo apt update && sudo apt -y -m upgrade"
+# alias update="sudo apt update && sudo apt -y -m upgrade"
+alias update="sudo pkcon refresh && sudo pkcon update"
 alias update_clean="sudo apt update && sudo apt -y -m dist-upgrade && sudo apt -y autoremove && sudo apt -y autoclean"
 
 export EDITOR="emacs -nw"
