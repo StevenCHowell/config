@@ -1,6 +1,9 @@
 # added for dot-file repo: config
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# arlis
+export PATH=~/data/arlis/catkin-docker:$PATH
+
 # aws profile
 alias aws_d="export AWS_PROFILE=default"
 alias aws_u="export AWS_PROFILE=usg"
