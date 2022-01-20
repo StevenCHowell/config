@@ -197,6 +197,8 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 # added for CUDA
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda/bin:$PATH
+export GLPATH=/usr/lib
 
 if [ -f ~/.profile ]; then
     . ~/.profile
