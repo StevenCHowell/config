@@ -1,5 +1,4 @@
 source ~/.aliases.zsh
-source ~/.vesprrc
 
 # added for dot-file repo: config
 alias config='/mingw64/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
