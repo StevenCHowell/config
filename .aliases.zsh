@@ -1,6 +1,9 @@
 # added for dot-file repo: config
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# nvidia
+alias htop-cuda='watch -n 1 nvidia-smi'
+
 # arlis
 export PATH=~/data/arlis/catkin-docker:$PATH
 
@@ -33,10 +36,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# alias update="sudo apt-get update && sudo apt-get -y -m dist-upgrade"
 # alias update="sudo apt update && sudo apt -y -m upgrade"
+# alias update_clean="sudo apt update && sudo apt -y -m dist-upgrade && sudo apt -y autoremove && sudo apt -y autoclean"
 alias update="sudo pkcon refresh && sudo pkcon update"
-alias update_clean="sudo apt update && sudo apt -y -m dist-upgrade && sudo apt -y autoremove && sudo apt -y autoclean"
+alias update_clean="sudo pkcon refresh && sudo pkcon -y update && sudo apt -y autoremove --purge && sudo apt -y autoclean"
 
 export EDITOR="emacs -nw"
 export LESS="-R"
