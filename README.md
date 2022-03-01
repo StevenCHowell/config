@@ -23,9 +23,17 @@
        https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf)
    - [MesloLGS NF Bold Italic.ttf](
        https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf)
-1. Double-click on each file and click "Install". This will make `MesloLGS NF` font available to all
+```bash
+cd ~/Downloads/
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf \
+     https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf \
+     https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf \ 
+     https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+ ```
+ 
+2. Double-click on each file and click "Install". This will make `MesloLGS NF` font available to all
    applications on your system.
-1. [Configure your terminal to use this font](https://github.com/romkatv/powerlevel10k#manual-font-installation)
+3. [Configure your terminal to use this font](https://github.com/romkatv/powerlevel10k#manual-font-installation)
 
 ## Version Control for Settings Files
 
