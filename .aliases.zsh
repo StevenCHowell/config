@@ -36,10 +36,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# alias update="sudo apt update && sudo apt -y -m upgrade"
-# alias update_clean="sudo apt update && sudo apt -y -m dist-upgrade && sudo apt -y autoremove && sudo apt -y autoclean"
-alias update="sudo pkcon refresh && sudo pkcon update"
-alias update_clean="sudo pkcon refresh && sudo pkcon -y update && sudo apt -y autoremove --purge && sudo apt -y autoclean"
+# alias update="sudo apt update ; sudo apt -y -m upgrade"
+# alias update_clean="sudo apt update ; sudo apt -y -m dist-upgrade ; sudo apt -y autoremove ; sudo apt -y autoclean"
+alias update="sudo pkcon refresh ; sudo pkcon update"
+alias update_clean="sudo pkcon refresh ; sudo pkcon -y update ; sudo apt -y autoremove --purge ; sudo apt -y autoclean"
 
 export EDITOR="emacs -nw"
 export LESS="-R"
@@ -101,7 +101,7 @@ alias cls="clear"
 alias mv="mv -iv"
 alias cp="cp -iva"
 
-alias lmake="make&&make"
+alias lmake="make;make"
 alias svn_id='svn propset svn:keywords "Id"'
 
 # alias sed='sed -E'   # set sed to modify files in place
