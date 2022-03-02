@@ -36,8 +36,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# alias update="sudo apt update ; sudo apt -y -m upgrade"
-# alias update_clean="sudo apt update ; sudo apt -y -m dist-upgrade ; sudo apt -y autoremove ; sudo apt -y autoclean"
+alias uupdate="sudo apt update ; sudo apt -y -m upgrade"
+alias uupdate_clean="sudo apt update ; sudo apt -y -m dist-upgrade ; sudo apt -y autoremove ; sudo apt -y autoclean"
 alias update="sudo pkcon refresh ; sudo pkcon update"
 alias update_clean="sudo pkcon refresh ; sudo pkcon -y update ; sudo apt -y autoremove --purge ; sudo apt -y autoclean"
 
