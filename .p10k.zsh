@@ -151,7 +151,7 @@
   if [[ $POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR != ' ' ]]; then
     # The color of the filler. You'll probably want to match the color of POWERLEVEL9K_MULTILINE
     # ornaments defined above.
-    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=240
+    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=011
     # Start filler from the edge of the screen if there are no left segments on the first line.
     typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_FIRST_SEGMENT_END_SYMBOL='%{%}'
     # End filler on the edge of the screen if there are no right segments on the first line.
@@ -159,7 +159,8 @@
   fi
 
   # Default background color.
-  typeset -g POWERLEVEL9K_BACKGROUND=236
+  # typeset -g POWERLEVEL9K_BACKGROUND=236
+  typeset -g POWERLEVEL9K_BACKGROUND=010
 
   # Separator between same-color segments on the left.
   typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%244F\uE0B1'
@@ -182,7 +183,7 @@
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=255
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=006
   # Custom icon.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
@@ -1505,7 +1506,18 @@
 
   ####################################[ time: current time ]####################################
   # Current time color.
-  typeset -g POWERLEVEL9K_TIME_FOREGROUND=66
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=001  # harsh red
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=002  # nice subtle green
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=003  # nice accent yellow
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=004  # nice blue
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=005  # hurts eyes
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=006  # nice subtle green
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=009  # hurts eyes (good for error)
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=011  # more subtle
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=012  # low contrast
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=013  # low contrast
+  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=014  # subtle
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND=015  # high contrast
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   # If set to true, time will update when you hit enter. This way prompts for the past
