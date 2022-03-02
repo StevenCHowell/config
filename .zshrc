@@ -111,3 +111,7 @@ fi
 source ~/.aliases.zsh
 
 unsetopt autopushd  # oh-my-zsh turns this on
+
+# For ROS, if file exists, source it
+FILE=/opt/ros/melodic/setup.zsh
+[[ ! -f "$FILE" ]] || source $FILE
