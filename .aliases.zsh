@@ -7,6 +7,10 @@ alias htop-cuda='watch -n 1 nvidia-smi'
 # arlis
 export PATH=~/data/arlis/catkin-docker:$PATH
 
+# for root-less docker
+# export PATH=/usr/bin:$PATH
+# export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
 # aws profile
 alias aws_d="export AWS_PROFILE=default"
 alias aws_u="export AWS_PROFILE=usg"
@@ -15,11 +19,7 @@ alias aws_u="export AWS_PROFILE=usg"
 alias pytest='pytest --disable-warnings'
 
 # add to path
-export PATH=~/bin:/snap/bin:$PATH
-
-# for docker
-export PATH=/usr/bin:$PATH
-export DOCKER_HOST=unix:///run/user/1000/docker.sock
+export PATH=~/bin:~/data/myPrograms/bin/:~/.local/bin:/snap/bin:$PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -174,7 +174,7 @@ alias mountiso='mount -o loop -t iso9660 -r'
 #f following is the archive file name
 #z filter the archive through gzip
 #j filter the archive through bzip2
-alias targz="\tar cvfz"
+alias targz="\tar cvfz --use-compress-program=pigz"
 alias tarbz="\tar cvfj"
 alias untargz="\tar xvfz"
 alias untarbz="\tar xvfj"

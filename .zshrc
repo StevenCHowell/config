@@ -77,7 +77,13 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize command-not-found git-extras)
+plugins=(
+  git
+  colorize
+  command-not-found
+  git-extras
+  poetry
+  )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,11 +113,17 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source ~/.aliases.zsh
+FILE=~/.p10k.zsh
+[[ ! -f "$FILE" ]] || source $FILE
+FILE=~/.aliases.zsh
+[[ ! -f "$FILE" ]] || source $FILE
 
 unsetopt autopushd  # oh-my-zsh turns this on
 
 # For ROS, if file exists, source it
 FILE=/opt/ros/melodic/setup.zsh
 [[ ! -f "$FILE" ]] || source $FILE
+FILE=/opt/ros/galactic/setup.zsh
+[[ ! -f "$FILE" ]] || source $FILE
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
