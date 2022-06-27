@@ -36,10 +36,29 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-alias uupdate="sudo apt update ; sudo apt -y -m upgrade"
-alias uupdate_clean="sudo apt update ; sudo apt -y -m dist-upgrade ; sudo apt -y autoremove ; sudo apt -y autoclean"
 alias update="sudo pkcon refresh ; sudo pkcon update"
 alias update_clean="sudo pkcon refresh ; sudo pkcon -y update ; sudo apt -y autoremove --purge ; sudo apt -y autoclean"
+
+## try one of these if pkcon doesn't work well on Ubuntu 
+## option 1, generic
+# if [ -e /etc/lsb-release ]; then
+#     . /etc/lsb-release
+#     if [ ${DISTRIB_ID} = Ubuntu ]; then
+#         alias update="sudo apt update ; sudo apt -y -m upgrade"
+#         alias update_clean="sudo apt update ; sudo apt -y -m dist-upgrade ; sudo apt -y autoremove ; sudo apt -y autoclean"
+#     elif [ ${DISTRIB_ID} = neon ]; then
+#         alias update="sudo pkcon refresh ; sudo pkcon update"
+#         alias update_clean="sudo pkcon refresh ; sudo pkcon -y update ; sudo apt -y autoremove --purge ; sudo apt -y autoclean"
+#     fi
+# fi
+## option 2, specific
+# if [[ ( `hostname -s` = red5 ) ]]; then
+#     alias update="sudo pkcon refresh ; sudo pkcon update"
+#     alias update_clean="sudo pkcon refresh ; sudo pkcon -y update ; sudo apt -y autoremove --purge ; sudo apt -y autoclean"
+# else
+#     alias update="sudo apt update ; sudo apt -y -m upgrade"
+#     alias update_clean="sudo apt update ; sudo apt -y -m dist-upgrade ; sudo apt -y autoremove ; sudo apt -y autoclean"
+# fi
 
 export EDITOR="emacs -nw"
 export LESS="-R"
