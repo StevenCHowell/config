@@ -39,7 +39,7 @@ unset __conda_setup
 alias update="sudo pkcon refresh ; sudo pkcon update"
 alias update_clean="sudo pkcon refresh ; sudo pkcon -y update ; sudo apt -y autoremove --purge ; sudo apt -y autoclean"
 
-## try one of these if pkcon doesn't work well on Ubuntu 
+## try one of these if pkcon doesn't work well on Ubuntu
 ## option 1, generic
 # if [ -e /etc/lsb-release ]; then
 #     . /etc/lsb-release
