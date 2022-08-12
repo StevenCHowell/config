@@ -5,7 +5,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias htop-cuda='watch -n 1 nvidia-smi'
 
 # arlis
-export PATH=~/data/arlis/catkin-docker:$PATH
+export PATH=~/data/arlis/arl/catkin-docker:$PATH
 
 # for root-less docker
 # export PATH=/usr/bin:$PATH
