@@ -15,3 +15,9 @@ apt install pipewire libspa-0.2-bluetooth pipewire-audio-client-libraries
 apt --fix-broken install
 
 pkcon update
+
+systemctl --user daemon-reload
+systemctl --user --now disable pulseaudio.service pulseaudio.socket
+systemctl --user mask pulseaudio
+systemctl --user --now enable pipewire-media-session.service
+systemctl --user restart pipewire
