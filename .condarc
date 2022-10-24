@@ -1,0 +1,9 @@
+channels:
+  - defaults
+  - conda-forge
+  - r
+
+show_channel_urls: True
+
+# For more information about this file see:
+# https://conda.io/docs/user-guide/configuration/use-condarc.html
