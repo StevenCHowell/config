@@ -5,7 +5,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias htop-cuda='watch -n 1 nvidia-smi'
 
 # arlis
-if [ -f ~/data/arlis/artiamas/catkin-dockor ] && export PATH=~/data/arlis/artiamas/catkin-docker:$PATH
+[ -f ~/data/arlis/artiamas/catkin-dockor ] && export PATH=~/data/arlis/artiamas/catkin-docker:$PATH
 
 # for root-less docker
 # export PATH=/usr/bin:$PATH
@@ -209,8 +209,6 @@ alias xdvi='xdvi -bg white -s 10'
 # Set global environment variables
 CVS_RSH="ssh"; export CVS_RSH
 export CVSEDITOR="emacs -nw --no-init-file"
-[ -f $HOME/paper/texpkg/ ] && export TEXINPUTS=.:$HOME/paper/texpkg//:: ; export BSTINPUTS=.:$HOME/paper/texpkg//:
-[ -f $HOME/paper/bib/ ] && export BIBINPUTS=.:$HOME/paper/bib//:
 
 [ -f $HOME/.Xdefaults ] && export XENVIRONMENT=$HOME/.Xdefaults
 #xrdb -load $HOME/.Xdefaults
