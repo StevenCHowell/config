@@ -5,7 +5,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias htop-cuda='watch -n 1 nvidia-smi'
 
 # arlis
-export PATH=~/data/arlis/artiamas/catkin-docker:$PATH
+if [ -f ~/data/arlis/artiamas/catkin-dockor ] && export PATH=~/data/arlis/artiamas/catkin-docker:$PATH
 
 # for root-less docker
 # export PATH=/usr/bin:$PATH
@@ -19,7 +19,10 @@ alias aws_u="export AWS_PROFILE=usg"
 alias pytest='pytest --disable-warnings'
 
 # add to path
-export PATH=~/bin:~/data/myPrograms/bin/:~/.local/bin:/snap/bin:$PATH
+[ -f ~/bin/ ] && export PATH=~/bin/:$PATH
+[ -f ~/data/myPrograms/bin/ ] && export PATH=~/data/myPrograms/bin/:$PATH
+[ -f ~/.local/bin/ ] && export PATH=~/.local/bin/:$PATH
+[ -f /snap/bin/ ] && export PATH=/snap/bin/:$PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -205,22 +208,20 @@ alias xdvi='xdvi -bg white -s 10'
 
 # Set global environment variables
 CVS_RSH="ssh"; export CVS_RSH
-#export CVSROOT=$HOME/data/cvsRepo
 export CVSEDITOR="emacs -nw --no-init-file"
-export TEXINPUTS=.:$HOME/paper/texpkg//::
-export BSTINPUTS=.:$HOME/paper/texpkg//:
-export BIBINPUTS=.:$HOME/paper/bib//:
+[ -f $HOME/paper/texpkg/ ] && export TEXINPUTS=.:$HOME/paper/texpkg//:: ; export BSTINPUTS=.:$HOME/paper/texpkg//:
+[ -f $HOME/paper/bib/ ] && export BIBINPUTS=.:$HOME/paper/bib//:
 
-export XENVIRONMENT=$HOME/.Xdefaults
+[ -f $HOME/.Xdefaults ] && export XENVIRONMENT=$HOME/.Xdefaults
 #xrdb -load $HOME/.Xdefaults
 
 # added for GSL and boost
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+[ -f /usr/local/lib ] && export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 # added for CUDA
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-export PATH=/usr/local/cuda/bin:$PATH
-export GLPATH=/usr/lib
+[ -f /usr/local/cuda/lib64 ] && export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+[ -f /usr/local/cuda/bin ] && export PATH=/usr/local/cuda/bin:$PATH
+[ -f /usr/lib ] && export GLPATH=/usr/lib
 
 if [ -f ~/.profile ]; then
     . ~/.profile
@@ -249,7 +250,6 @@ dedup(){
 #     builtin pushd "$@"
 #     dedup
 # }
-
 
 # alias source_beet="source ~/Music/venv/bin/activate"
 # alias crysol="crysol -lm 50 -fb 18" #xray default
