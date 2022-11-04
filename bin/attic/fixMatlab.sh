@@ -1,0 +1,1 @@
+sudo ln -s /lib/x86_64-linux-gnu/libc-2.15.so /lib64/libc.so.6

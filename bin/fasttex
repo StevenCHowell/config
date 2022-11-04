@@ -1,0 +1,32 @@
+#!/bin/bash
+
+
+# Runs pdflatex in batchmode once
+# Cleans all auxillary files afterwards
+# For documents with TOC or Bibliography:
+#     use fulltex
+
+
+if [ $# -eq 0 ]; then
+    echo ''
+    echo '.tex file required ( fasttex foo.tex )'
+    echo ''
+    exit 1
+fi
+
+CWD=$echo`pwd`
+BASENAME=$(basename $1 .tex)
+DIRNAME=$(dirname $1)
+
+# Switch directories to run pdflatex, since can't run pdflatex from another directory
+cd $DIRNAME
+
+echo ''
+echo executing: pdflatex $BASENAME.tex '(directory = "'$DIRNAME'")'
+pdflatex -interaction=batchmode $BASENAME.tex > /dev/null
+echo ''
+echo removing temp files [.aux .log .out .toc]
+rm $BASENAME.aux $BASENAME.log $BASENAME.out $BASENAME.toc 2> /dev/null
+
+cd $CWD
+

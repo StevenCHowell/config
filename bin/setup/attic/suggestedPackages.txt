@@ -1,0 +1,31 @@
+Suggested packages:
+  webaccounts-chromium-extension unity-chromium-extension pepperflashplugin-nonfree clisp-doc clisp-dev slime perl-tk fontforge
+  context-nonfree context-doc-nonfree filters dh-make apparmor-easyprof dbtoepub docbook-xsl-doc-html docbook-xsl-doc-pdf
+  docbook-xsl-doc-text docbook-xsl-doc docbook-xsl-saxon fop libsaxon-java libxalan2-java libxslthl-java xalan debian-keyring emacs24-el
+  fortunes g++-multilib g++-4.8-multilib gcc-4.8-doc libstdc++6-4.8-dbg gawk-doc gimp-help-en gimp-help gimp-data-extras graphviz-doc
+  ksensors libterm-readline-gnu-perl libterm-readline-perl-perl imagemagick-doc autotrace enscript ffmpeg gnuplot grads hp2xx html2ps
+  mplayer povray radiance texlive-base-bin ufraw-batch dia dia-gnome libsvg-perl libxml-xql-perl python-uniconvertor ipython-doc
+  ipython-notebook ipython-qtconsole python-zmq equivs djvulibre-bin finger khelpcenter4 arj ark kmail konsole lha md5deep cfv okteta rpm
+  unace auctex hbf-cns40-b5 hbf-jfs56 fonts-arphic-bkai00mp fonts-arphic-bsmi00lp fonts-arphic-gbsn00lp fonts-arphic-gkai00mp hbf-kanji48
+  subversion cvs rcs libbluray-bdj libbonobo2-bin glibc-doc:i386 locales:i386 libcairo2-doc isdnutils-doc isdnutils-doc:i386
+  firmware-crystalhd rng-tools:i386 libgd-tools:i386 libglide3:i386 libglib2.0-doc desktop-base libgnomevfs2-bin gamin fam
+  gnome-mime-data gnutls-bin:i386 gnutls-bin gphoto2:i386 gtkam:i386 gpm:i386 gsl-ref-psdoc gsl-doc-pdf gsl-doc-info gsl-ref-html
+  krb5-doc:i386 krb5-user:i386 libvisual-0.4-plugins:i386 gstreamer-codec-install:i386 gnome-codec-install:i386 gstreamer0.10-tools:i386
+  gstreamer0.10-plugins-base:i386 libgtk2.0-doc java-virtual-machine libdata-dump-perl libice-doc libintl-xs-perl jackd2:i386
+  javascript-common hspell liblcms2-utils:i386 libcrypt-ssleay-perl m17n-docs libmyodbc odbc-postgresql tdsodbc unixodbc-bin
+  libportaudio2:i386 libroar-compat2:i386 libpango1.0-doc pulseaudio:i386 libqca2-plugin-cyrus-sasl libqca2-plugin-gnupg
+  hyphen-hyphenation-patterns libreoffice-grammarcheck libreoffice-l10n-4.1 openclipart-libreoffice gstreamer1.0-ffmpeg
+  libreoffice-officebean libreoffice-gcj libreoffice-report-builder libjtds-java hplip:i386 hpoj:i386 libsane-extras:i386
+  libsasl2-modules-otp:i386 libsasl2-modules-ldap:i386 libsasl2-modules-sql:i386 libsasl2-modules-gssapi-mit:i386
+  libsasl2-modules-gssapi-heimdal:i386 libsm-doc libstdc++-4.8-doc libauthen-ntlm-perl libxcb-doc libxext-doc fancontrol sensord
+  read-edid i2c-tools opencl-icd opencl-icd:i386 icedtea-7-plugin sun-java6-fonts ttf-telugu-fonts ttf-oriya-fonts ttf-kannada-fonts
+  ttf-bengali-fonts p7zip-rar phonon-backend-vlc phonon4qt5-backend-gstreamer scrot libmail-box-perl python-gtk2-doc python-excelerator
+  python-matplotlib-doc python-nose python-tornado python-traits ttf-staypuft gfortran python-numpy-dbg python-numpy-doc tix
+  python-tk-dbg wx2.8-doc wx2.8-examples editra ri ruby-dev ruby1.9.1-examples ri1.9.1 ruby1.9.1-dev ruby-switch bind9 bind9utils
+  ldb-tools ntp smbldap-tools openjdk-6-jre-headless java5-runtime-headless texinfo-doc-nonfree jadetex passivetex xmltex
+  latex-fonts-sipa-arundina python-pygments dot2tex libtcltk-ruby xfig ctags vim-doc vim-scripts videolan-doc libnss-winbind
+  libpam-winbind dosbox:any xemacs21-supportel
+
+Recommended packages:
+  fonts-freefont xml-core:i386 musixlyr libavcodec-extra-53 unixodbc:i386 wine-mono0.0.8:i386
+

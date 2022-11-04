@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Runs pdflatex, bibtex, pdflatex x2 in batchmode on a file
+# Cleans all auxillary files afterwards
+# Seems to work with *.tex as a file parameter if desired
+
+if [ $# -eq 0 ]; then
+    echo ''
+    echo '.tex file required ( fulltex foo.tex )'
+    echo ''
+    exit 1
+fi
+
+BASENAME=$(basename $1 .tex)
+BASENAME=$(basename $1 .tex)
+DIRNAME=$(dirname $1)
+
+# Switch directories to run pdflatex, since can't run pdflatex from another directory
+cd $DIRNAME
+
+echo ''
+echo executing: pdflatex $BASENAME.tex '(directory = "'$DIRNAME'")'
+pdflatex -interaction=batchmode $BASENAME.tex #> /dev/null
+echo ''
+
+echo ''
+echo executing: bibtex $BASENAME.aux
+bibtex $BASENAME.aux #> /dev/null
+echo ''
+
+echo executing: pdflatex $BASENAME.tex a second time
+pdflatex -interaction=batchmode $BASENAME.tex #> /dev/null
+echo ''
+
+echo executing: pdflatex $BASENAME.tex a third time
+pdflatex -interaction=batchmode $BASENAME.tex #> /dev/null
+echo ''
+
+#Clean up temp files, redirect stderr since almost always these files wont exists
+echo removing temp files [.aux .log .out .toc .bbl .blg]
+rm $BASENAME.aux $BASENAME.log $BASENAME.out $BASENAME.toc $BASENAME.bbl $BASENAME.blg 2> /dev/null
+
+echo opening result
+evince $BASENAME.pdf &
+
+cd $CWD
