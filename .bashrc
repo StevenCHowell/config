@@ -4,7 +4,7 @@
 alias config='/mingw64/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # aws
-export GPU_EC2_PEM=~/.ssh/gpu-ec2-instance.pem
+export EC2_PEM=~/.ssh/ec2.pem
 alias ec2g='~/bin/ec2g.sh'
 alias ec2stop='aws ec2 stop-instances --instance-ids i-0ffccfb4ce40e551d'
 alias ec2start='aws ec2 start-instances --instance-ids i-0ffccfb4ce40e551d'
