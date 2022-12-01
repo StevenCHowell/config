@@ -10,9 +10,7 @@ USERNAME=$USER
 DIR=`pwd`
 DIR_REM=`pwd`
 
-declare -a mycomputers=("baldr" "loki" "thor" "aurora" "odin" "yoda" "freenas"
-                        "gibbs" "onsager" "P858549" "P630552" "P643652" "sassie-web"
-                        "P641697.campus.nist.gov")
+declare -a mycomputers=("aurora" "loki" "thor" "yoda" "freenas" "red5" "heimdall")
 
 # set the options: --stats
 OPTIONS="-e ssh -auv --progress --ignore-errors --exclude-from=$HOME/.rsync_exclude"
@@ -62,87 +60,20 @@ done
 
 if [ "$2" == "aurora" ] ; then
     REMOTEIP=192.168.62.101
-    # REMOTEIP=161.253.36.27
-    echo "using aurora as remote computer"
-elif [ "$2" == "charge" ] ; then
-    REMOTEIP=161.253.36.181
-    USERNAME=xraylab
-    echo "using charge as remote computer"
-elif [ "$2" == "vm" ] ; then
-    REMOTEIP=10.211.55.4
-    USERNAME=curtisj
-    echo "using charge as remote computer"
-elif [ "$2" == "gibbs" ] ; then
-    REMOTEIP=129.6.123.230
-    echo "using gibbs as remote computer"
-elif [ "$2" == "onsager" ] ; then
-    REMOTEIP=129.6.121.86
-    echo "using onsager as remote computer"
-    # DIR_REM=${DIR_REM/home/share_home}
-    # echo "remote directory changed to: " $DIR_REM
-elif [ "$2" == "ocho" ] ; then
-    REMOTEIP=129.6.121.114
-    echo "using ocho as remote computer"
-    DIR_REM=${DIR_REM/home/Users}
-    echo "remote directory changed to: " $DIR_REM
-elif [ "$2" == "air" ] ; then
-    REMOTEIP=129.6.226.252
-    DIR_REM=${DIR_REM/home/Users}
-    echo "using air as remote computer"
-    echo "remote directory changed to: " $DIR_REM
-elif [ "$2" == "book" ] ; then
-    REMOTEIP=129.6.123.27
-    DIR_REM=${DIR_REM/home/Users}
-    echo "using can as remote computer"
-    echo "remote directory changed to: " $DIR_REM
-elif [ "$2" == "can" ] ; then
-    REMOTEIP=129.6.121.5
-    DIR_REM=${DIR_REM/home/Users}
-    echo "using can as remote computer"
-    echo "remote directory changed to: " $DIR_REM
-elif [ "$2" == "entropy" ] ; then
-    REMOTEIP=entropy.chem.utk.edu
-    echo "using entropy as remote computer"
-elif [ "$2" == "ventropy" ] ; then
-    REMOTEIP=192.168.56.101
-    echo "using virtual entropy as remote computer"
-elif [ "$2" == "mentropy" ] ; then
-    REMOTEIP=129.6.123.223
-    echo "using mobile entropy as remote computer"
-elif [ "$2" == "mobile" ] ; then
-    REMOTEIP=129.6.121.53
-    echo "using mobileentropy as remote computer"
-elif [ "$2" == "ncnr" ] ; then
-    REMOTEIP=129.6.123.28
-    echo "using ncnr as remote computer"
-elif [ "$2" == "odin" ] ; then
-    #REMOTEIP=129.6.120.176
-    REMOTEIP=129.6.123.226
-    echo "using odin as remote computer"
-elif [ "$2" == "sweb" ] ; then
-    REMOTEIP=sassie-web.chem.utk.edu
-    echo "using entropy as remote computer"
 elif [ "$2" == "loki" ] ; then
-    #REMOTEIP=161.253.36.3
     REMOTEIP=161.253.36.74
-    echo "using loki as remote computer"
-elif [ "$2" == "lokiH" ]; then
-    REMOTEIP=192.168.62.97
-    echo "using loki home as remote computer"
-elif [ "$2" == "lokiW" ]; then
-    REMOTEIP=192.168.1.122
-    echo "using loki home as remote computer"
 elif [ "$2" == "thor" ]; then
     REMOTEIP=192.168.62.99
-    #REMOTEIP=192.168.62.155
-    echo "using thor as remote computer"
+elif [ "$2" == "yoda" ]; then
+    REMOTEIP=192.168.62.95  # guess
 elif [ "$2" == "freenas" ] ; then
     REMOTEIP=192.168.62.63
-    echo "using freenas as remote computer"
-elif [ "$2" == "colonial" ] ; then
-    REMOTEIP=login.colonialone.gwu.edu
-    echo "using colonialone as remote computer"
+elif [ "$2" == "red5" ] ; then
+    REMOTEIP=192.168.62.98
+elif [ "$2" == "heimdall" ]; then
+    REMOTEIP=192.168.62.97
 fi
+echo "using $2 as remote computer"
 
 if [[ $(hostname -s) = P6* ]] ; then
     DIR_REM=${DIR_REM/Users/home}

@@ -256,7 +256,7 @@ dedup(){
 # alias foxs="foxs -q 0.2 -s 200"
 # alias scatter="java -jar $HOME/data/myPrograms/scatter3a_jar/scatter3.jar &"
 # alias amd="sudo amdcccle"
-# export PATH="$HOME/data/myPrograms/bin:$HOME/data/myPrograms/atsas/bin:$HOME/data/myPrograms/NAMD:$HOME/bin:/usr/local/cuda/bin:$PATH"
+export PATH="$HOME/data/myPrograms/bin:$HOME/bin:/usr/local/cuda/bin:$PATH"
 
 # # added for VMD
 # export LD_LIBRARY_PATH=/home/schowell/data/myPrograms/vm:$LD_LIBRARY_PATH
