@@ -5,7 +5,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias htop-cuda='watch -n 1 nvidia-smi'
 
 # arlis
-[ -f ~/data/arlis/artiamas/catkin-dockor ] && export PATH=~/data/arlis/artiamas/catkin-docker:$PATH
+[ -d ~/data/arlis/artiamas/catkin-docker/ ] && export PATH=~/data/arlis/artiamas/catkin-docker:$PATH
 
 # for root-less docker
 # export PATH=/usr/bin:$PATH
@@ -19,10 +19,10 @@ alias aws_u="export AWS_PROFILE=usg"
 alias pytest='pytest --disable-warnings'
 
 # add to path
-[ -f ~/bin/ ] && export PATH=~/bin/:$PATH
-[ -f ~/data/myPrograms/bin/ ] && export PATH=~/data/myPrograms/bin/:$PATH
-[ -f ~/.local/bin/ ] && export PATH=~/.local/bin/:$PATH
-[ -f /snap/bin/ ] && export PATH=/snap/bin/:$PATH
+[ -d ~/bin/ ] && export PATH=~/bin/:$PATH
+[ -d ~/data/myPrograms/bin/ ] && export PATH=~/data/myPrograms/bin/:$PATH
+[ -d ~/.local/bin/ ] && export PATH=~/.local/bin/:$PATH
+[ -d /snap/bin/ ] && export PATH=/snap/bin/:$PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -145,7 +145,7 @@ alias j='jobs -l'
 
 alias path='echo -e ${PATH//:/\\n}'
 # alias now='date +"%T"'
-alias now='date +"%H%M%S"'
+alias now='date +"%H:%M:%S"'
 alias nowtime=now
 alias nowdate='date +"%Y%m%d"'
 
@@ -214,12 +214,12 @@ export CVSEDITOR="emacs -nw --no-init-file"
 #xrdb -load $HOME/.Xdefaults
 
 # added for GSL and boost
-[ -f /usr/local/lib ] && export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+[ -d /usr/local/lib ] && export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 # added for CUDA
-[ -f /usr/local/cuda/lib64 ] && export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-[ -f /usr/local/cuda/bin ] && export PATH=/usr/local/cuda/bin:$PATH
-[ -f /usr/lib ] && export GLPATH=/usr/lib
+[ -d /usr/local/cuda/lib64 ] && export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+[ -d /usr/local/cuda/bin ] && export PATH=/usr/local/cuda/bin:$PATH
+[ -d /usr/lib ] && export GLPATH=/usr/lib
 
 if [ -f ~/.profile ]; then
     . ~/.profile
