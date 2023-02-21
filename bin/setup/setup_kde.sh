@@ -10,7 +10,7 @@ add-apt-repository ppa:pipewire-debian/pipewire-upstream
 
 pkcon refresh
 
-apt install zsh tilda spotify-client emacs unityhub libfuse2 gimp inkscape terminator htop net-tools fortune cowsay lolcat
+apt install zsh tilda spotify-client emacs unityhub libfuse2 gimp inkscape terminator htop net-tools fortune cowsay lolcat ssh
 apt install pipewire libspa-0.2-bluetooth pipewire-audio-client-libraries chntpw
 apt --fix-broken install
 
