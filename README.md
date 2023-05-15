@@ -47,6 +47,7 @@ git init --bare $HOME/.cfg
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'  # linux/windows
 config config --local status.showUntrackedFiles no
 config remote add origin git@github.com:StevenCHowell/config.git
+rm ~/.bashrc ~/.zshrc
 config pull origin master
 config push --set-upstream origin master
 ```
