@@ -14,7 +14,7 @@
 
 ### Install the recommended powerlevel20k font
 
-1. Download these four ttf files:
+1. Download these four ttf files and place them in the folder `/usr/local/share/fonts/`
    - [MesloLGS NF Regular.ttf](
        https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf)
    - [MesloLGS NF Bold Italic.ttf](
@@ -29,12 +29,11 @@ cd ~/Downloads/
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf \
      https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf \
      https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf \
-     https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf 
- ```
+     https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+sudo mv *.ttf /usr/local/share/fonts
+```
  
-2. Double-click on each file and click "Install". This will make `MesloLGS NF` font available to all
-   applications on your system.
-3. [Configure your terminal to use this font](https://github.com/romkatv/powerlevel10k#manual-font-installation)
+2. [Configure your terminal to use the `MesloLGS NF` font](https://github.com/romkatv/powerlevel10k#manual-font-installation)
 
 ## Version Control for Settings Files
 
