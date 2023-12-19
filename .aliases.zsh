@@ -244,6 +244,27 @@ dedup(){
     done
 }
 
+# automatically activate and deactivate Python virtual environments
+# https://stackoverflow.com/a/50830617/3585557
+function cd() {
+  builtin cd "$@"
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    ## If env folder is found then activate the vitualenv
+      if [[ -d ./venv ]] ; then
+        source ./venv/bin/activate
+      fi
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+      parentdir="$(dirname "$VIRTUAL_ENV")"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        deactivate
+      fi
+  fi
+}
+
 # pushd(){
 #     builtin pushd "$@"
 #     dedup
@@ -256,7 +277,7 @@ dedup(){
 # alias foxs="foxs -q 0.2 -s 200"
 # alias scatter="java -jar $HOME/data/myPrograms/scatter3a_jar/scatter3.jar &"
 # alias amd="sudo amdcccle"
-export PATH="$HOME/data/myPrograms/bin:$HOME/bin:/usr/local/cuda/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/data/myPrograms/bin:$HOME/bin:/usr/local/cuda/bin:$PATH"
 
 # # added for VMD
 # export LD_LIBRARY_PATH=/home/schowell/data/myPrograms/vm:$LD_LIBRARY_PATH
