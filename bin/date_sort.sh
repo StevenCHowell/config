@@ -1,8 +1,15 @@
 #!/usr/bin/env zsh
 
-# usage:
+# Note that you should sort the most recent year first.
+#
+# usage examples:
+#
 # $cd ~/Dropbox/Camera\ Uploads/
 # $date_sort.sh 2014 ~/Pictures/ pictures steve
+#
+# $cd ~/pCloudDrive/Automatic\ Upload/Google\ Pixel\ 7a/
+# $date_sort.sh 2024 ~/pCloudDrive/Photos/ pictures rachael
+#
 
 year=$1
 path=$2
