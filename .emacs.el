@@ -7,11 +7,11 @@
               search-highlight t) ; hilit matches when searching
 (global-hl-line-mode t) ; Highlight the line we are currently on
 
-;; add expanded package manager
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-
 ;; Comment out if you've already loaded this package...
 (require 'cl-lib)
+
+add expanded package manager
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (defvar my-packages
   '(ack-and-a-half auctex clojure-mode coffee-mode deft expand-region
@@ -107,8 +107,9 @@
               noruntime
               cl-warnings
               interactive-only)))
-    (byte-compile-file (expand-file-name file)))
+    (byte-compile-file (expand-file-name file))
   )
+)
 
 (add-hook
  'after-save-hook
@@ -116,10 +117,11 @@
   (lambda ()
     (if (string= (file-truename "~/.emacs.el")
                  (file-truename (buffer-file-name)))
-        (byte-compile-init-files (file-truename "~/.emacs.el")))
+        (byte-compile-init-files (file-truename "~/.emacs.el"))
     )
   )
  )
+)
 
 ;; Byte-compile again to ~/.emacs.elc if it is outdated
 (if (file-newer-than-file-p
@@ -127,16 +129,16 @@
      (file-truename "~/.emacs.elc"))
     (byte-compile-init-files "~/.emacs.el"))
 
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;; Rainbow Delimiters -  have delimiters be colored by their depth
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (use-package rainbow-delimiters
-;;   :ensure t
-;;   :init
-;;   (eval-when-compile
-;;     ;; Silence missing function warnings
-;;     (declare-function rainbow-delimiters-mode "rainbow-delimiters.el"))
-;;   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Rainbow Delimiters -  have delimiters be colored by their depth
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package rainbow-delimiters
+  :ensure t
+  :init
+  (eval-when-compile
+    ;; Silence missing function warnings
+    (declare-function rainbow-delimiters-mode "rainbow-delimiters.el"))
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Beacon-mode: flash the cursor when switching buffers or scrolling
