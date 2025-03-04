@@ -2,5 +2,5 @@
 red5=192.168.62.98
 heimdall=192.168.62.97
 thor=192.168.62.99
-port=3333
+port=12345
 nc $thor $port

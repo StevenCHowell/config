@@ -1,3 +1,3 @@
 #!/bin/bash
-port=3333
+port=12345
 nc -l $port | while read msg; do zenity --info --text "$msg"; done
