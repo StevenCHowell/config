@@ -1,21 +1,21 @@
 #!/usr/bin/env zsh
 
-# Note that you should sort the most recent year first.
+# Note that you should sort the MOST RECENT YEAR FIRST.
 #
 # usage examples:
 #
 # $cd ~/Dropbox/Camera\ Uploads/
-# $date_sort.sh 2014 ~/Pictures/ pictures steve
+# $bash date_sort.sh 2014 ~/Pictures/ pictures steve
 #
-# $cd ~/pCloudDrive/Automatic\ Upload/Google\ Pixel\ 7a/
-# $date_sort.sh 2024 ~/pCloudDrive/Photos/ pictures rachael
+# $cd /mnt/data/smb_share/photos/xfer/some_folder
+# $bash date_sort.sh 2024 /mnt/data/smb_share/photos/family_photos pictures misc
 #
 
 year=$1
 path=$2
 if [ "$3" == "pictures" ] ; then
     for i in {12..10} 0{9..1} ; do
-        dir=$path/$year/$i-$year/$4Cell
+        dir=$path/$year/$i-$year/$4
         echo making $dir directory
         mkdir -p $dir
         date=$year-$i-01T00:00:00
@@ -24,9 +24,9 @@ if [ "$3" == "pictures" ] ; then
 else
     echo sorting files for $year into $path
     for i in {12..10} 0{9..1} ; do
-        echo making $path$i-$year directory
-        mkdir -p $path$year/$i-$year
+        echo making $path/$year/$i-$year directory
+        mkdir -p $path/$year/$i-$year
         date=$year-$i-01T00:00:00
-        find ./ -maxdepth 1 -newermt $date -exec mv "{}" $path$year/$i-$year/ \;
+        find ./ -maxdepth 1 -newermt $date -exec mv "{}" $path/$year/$i-$year/ \;
     done
 fi
