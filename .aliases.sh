@@ -63,7 +63,13 @@ alias update_clean="sudo pkcon refresh ; sudo pkcon -y update ; sudo apt -y auto
 #     alias update_clean="sudo apt update ; sudo apt -y -m dist-upgrade ; sudo apt -y autoremove ; sudo apt -y autoclean"
 # fi
 
-export EDITOR="emacs -nw"
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
+export VISUAL="code"
 export LESS="-R"
 
 umask 027

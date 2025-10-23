@@ -95,13 +95,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -116,7 +109,7 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 FILE=~/.p10k.zsh
 [[ ! -f "$FILE" ]] || source $FILE
-FILE=~/.aliases.zsh
+FILE=~/.aliases.sh
 [[ ! -f "$FILE" ]] || source $FILE
 
 unsetopt autopushd  # oh-my-zsh turns this on

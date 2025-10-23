@@ -1,4 +1,4 @@
-[ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
+[ -f ~/.aliases.sh ] && source ~/.aliases.sh
 
 # added for dot-file repo: config
 alias config='/mingw64/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
