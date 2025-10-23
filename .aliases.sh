@@ -7,37 +7,12 @@ alias htop-cuda='watch -n 1 nvidia-smi'
 # arlis
 [ -d ~/data/arlis/artiamas/catkin-docker/ ] && export PATH=~/data/arlis/artiamas/catkin-docker:$PATH
 
-# for root-less docker
-# export PATH=/usr/bin:$PATH
-# export DOCKER_HOST=unix:///run/user/1000/docker.sock
-
 # aws profile
 alias aws_d="export AWS_PROFILE=default"
 alias aws_u="export AWS_PROFILE=usg"
 
 # pytest
 alias pytest='pytest --disable-warnings'
-
-# add to path
-[ -d ~/bin/ ] && export PATH=~/bin/:$PATH
-[ -d ~/data/myPrograms/bin/ ] && export PATH=~/data/myPrograms/bin/:$PATH
-[ -d ~/.local/bin/ ] && export PATH=~/.local/bin/:$PATH
-[ -d /snap/bin/ ] && export PATH=/snap/bin/:$PATH
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/schowell/data/myPrograms/mambaforge-pypy3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/schowell/data/myPrograms/mambaforge-pypy3/etc/profile.d/conda.sh" ]; then
-        . "/home/schowell/data/myPrograms/mambaforge-pypy3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/schowell/data/myPrograms/mambaforge-pypy3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 alias update="sudo pkcon refresh ; sudo pkcon update"
 alias update_clean="sudo pkcon refresh ; sudo pkcon -y update ; sudo apt -y autoremove --purge ; sudo apt -y autoclean"
@@ -79,42 +54,28 @@ set history=500
 ## resume wget downloads
 alias wget='wget -c'
 
-
+# multi eog for specified extension: `eogn *.png`
 eogn () { for i; do eog -n "$i" & done; }
 
-# ls aliases
-# if [[ ( `hostname -s` = P630552 ) || ( `hostname -s` = P643652 ) || (`hostname -s` = P641697 ) ]]; then
-#     alias l='ls -1rt'
-#     alias l.="ls -lhtrdF .*"
-#     alias sl="ls"
-#     alias ls="ls -F"
-#     alias ll="ls -ltrhF"
-#     alias la="ls -a -ltrhF"
-#     alias lss="ls -lShr"
-#     alias lsh="ls -lt | head"
-#     alias lst="ls -lrt | tail"
-#     alias lsa="ls -lrta | tail"
-#     alias rm="grm -i"
-# else
-if true; then
-    alias l='ls -1rt --color=tty'
-    alias l.="ls -lhtrdF .* --color=tty"
-    alias sl="ls --color=tty"
-    alias ls="ls -FX --color=tty"
-    alias ll="ls -ltrhF --color=tty"
-    alias la="ls -a -trhF --color=tty"
-    alias lla="ls -a -ltrhF --color=tty"
-    alias lss="ls -lShr --color=tty"
-    alias lsh="ls -lt --color=tty | head"
-    alias lst="ls -lrt --color=tty | tail"
-    alias lsa="ls -lrta --color=tty | tail"
-    alias dir='dir --color=tty'
-    alias rm="rm -ir --preserve-root"
-fi
+alias l='ls -1rt --color=tty'
+alias l.="ls -lhtrdF .* --color=tty"
+alias sl="ls --color=tty"
+alias ls="ls -FX --color=tty"
+alias ll="ls -ltrhF --color=tty"
+alias la="ls -a -trhF --color=tty"
+alias lla="ls -a -ltrhF --color=tty"
+alias lss="ls -lShr --color=tty"
+alias lsh="ls -lt --color=tty | head"
+alias lst="ls -lrt --color=tty | tail"
+alias lsa="ls -lrta --color=tty | tail"
+alias lsd='ls -lt | grep drwx | head'
+
+alias dir='dir --color=tty'
+
+alias rm="rm -ir --preserve-root"
 alias trash="for f in $@; do mv $f ~/trashcan; done"
 
 # From Joseph
-alias lsd='ls -lt | grep drwx | head'
 # alias cdsm='cd ~/data/myPrograms/sasmol/'
 # alias cds2='cd ~/data/codesassie_svn/sassie_2.0/'
 
@@ -129,7 +90,7 @@ alias cls="clear"
 alias mv="mv -iv"
 alias cp="cp -iva"
 
-alias lmake="make;make"
+alias lmake="make&&make"  # only run second `make` if first one suceeds
 alias svn_id='svn propset svn:keywords "Id"'
 
 # alias sed='sed -E'   # set sed to modify files in place
@@ -216,20 +177,31 @@ alias xdvi='xdvi -bg white -s 10'
 CVS_RSH="ssh"; export CVS_RSH
 export CVSEDITOR="emacs -nw --no-init-file"
 
-[ -f $HOME/.Xdefaults ] && export XENVIRONMENT=$HOME/.Xdefaults
-#xrdb -load $HOME/.Xdefaults
-
 # added for GSL and boost
 [ -d /usr/local/lib ] && export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+# added for VMD
+[ -d /home/schowell/data/myPrograms/vm ] && export LD_LIBRARY_PATH=/home/schowell/data/myPrograms/vm:$LD_LIBRARY_PATH
+
+# added for OpenACC Toolkit
+[ -d /opt/pgi/linux86-64/16.7/bin ] && export PATH=/opt/pgi/linux86-64/16.7/bin:$PATH
+
+# add to path
+[ -d ~/.local/bin/ ] && export PATH=~/.local/bin/:$PATH
+[ -d ~/bin/ ] && export PATH=~/bin/:$PATH
+[ -d ~/data/myPrograms/bin/ ] && export PATH=~/data/myPrograms/bin/:$PATH
+[ -d "/usr/local/cuda/bin" ] && export PATH="/usr/local/cuda/bin:$PATH"
+[ -d /snap/bin/ ] && export PATH=/snap/bin/:$PATH
 
 # added for CUDA
 [ -d /usr/local/cuda/lib64 ] && export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 [ -d /usr/local/cuda/bin ] && export PATH=/usr/local/cuda/bin:$PATH
 [ -d /usr/lib ] && export GLPATH=/usr/lib
 
-if [ -f ~/.profile ]; then
-    . ~/.profile
-fi
+# added for theano
+[ -d /usr/local/cuda ] && export CUDA_ROOT=/usr/local/cuda
+
+[ -f ~/.profile ] && . ~/.profile
 
 # de-duplicate pushd
 # https://unix.stackexchange.com/a/288532/83205
@@ -271,74 +243,23 @@ function cd() {
   fi
 }
 
+# ipython
+alias tipython="ipython --pylab"
+alias gipython="ipython notebook --pylab=inline"
+
 # pushd(){
 #     builtin pushd "$@"
 #     dedup
 # }
 
-# alias source_beet="source ~/Music/venv/bin/activate"
 # alias crysol="crysol -lm 50 -fb 18" #xray default
 # alias crysol="crysol -lm 15 -fb 18" #my default (lm is important for MASSHA but takes much longer)
 # alias crysol="crysol -lm 10 -fb 18 -sm 0.2" #my default (lm = Q_max * D_max / pi, and it is not accurate beyond 0.2)
-# alias foxs="foxs -q 0.2 -s 200"
-# alias scatter="java -jar $HOME/data/myPrograms/scatter3a_jar/scatter3.jar &"
-# alias amd="sudo amdcccle"
-export PATH="$HOME/.local/bin:$HOME/data/myPrograms/bin:$HOME/bin:/usr/local/cuda/bin:$PATH"
-
-# # added for VMD
-# export LD_LIBRARY_PATH=/home/schowell/data/myPrograms/vm:$LD_LIBRARY_PATH
 
 # # added for Launcher (https://github.com/tacc/launcher)
 # #export LAUNCHER_JOB_FILE=<file_to_run>
 # export LAUNCHER_WORKDIR=$HOME/data/myPrograms/launcher/
 
-# # added for zeppelin
-# export ZEPPELIN_HOME=$HOME/data/myPrograms/zeppelin
-# export PATH=$PATH:$ZEPPELIN_HOME/bin
-# export ZEPPELIN_PORT=9995
-
-# # added for spark
-# export SPARK_HOME=$HOME/data/myPrograms/spark
-# export PATH=$PATH:$SPARK_HOME/bin
-
-# # added for scala
-# export SCALA_HOME=$HOME/data/myPrograms/scala
-# export PATH=$PATH:$SCALA_HOME/bin
-
-# # added for OpenACC Toolkit
-# export PATH=/opt/pgi/linux86-64/16.7/bin:$PATH
-
-# # added for theano
-# export CUDA_ROOT=/usr/local/cuda
-
-# export MATLAB_JAVA=/usr/lib/jvm/java-6-openjdk/jre;
-# alias tmatlab='matlab -nodesktop -nosplash'
-# alias gmatlab='matlab -nosplash -desktop &'
-# alias oldtmatlab='$HOME/data/myPrograms/matlab2010b/bin/matlab -nodesktop -nosplash'
-# alias oldgmatlab='$HOME/data/myPrograms/matlab2010b/bin/matlab -nosplash -desktop &'
-# # For 32-bit matlab on 64-bit OS ##
-# alias tmatlab='matlab -glnx86 -nosplash -nodesktop'
-# alias gmatlab='matlab -glnx86 -nosplash -desktop &'
-
-
-# alias xmatlab='\matlab &'
-# alias sedfit='wine /home/programs/wine/drive_c/sedfit/sedfit.exe'
-# alias JabRef='java -jar /home/programs/download/JabRef-2.3.1.jar'
-# alias cabaretstage='/home/programs/cabaretstage/cabaretstage.sh'
-
-# # linux programs
-# alias raw='python $HOME/data/myPrograms/bioxtasraw/src/RAW.py &'
-# alias mathematica='$HOME/data/myPrograms/Mathematica9/bin/Mathematica'
-# alias zotero='$HOME/data/myPrograms/Zotero_linux-x86_64/zotero'
-# alias cb='java -jar $HOME/data/myPrograms/ColorOracle.jar'
-
-# # Print Commands
-# alias lpr="lpr -Plj4250"
-# alias lprc="\lpr -PXerox8560DN"
-# alias lprc2="\lpr -PLexmarkC534dn"
-# alias lprbw="\lpr -PLaserjet9000"
-# alias lpq="lpq -Plj4250"
-# alias lpqc="lpq -PPhaser8200"
 
 # # Compile & Debug C
 # # alias val="valgrind --leak-check=full -v --show-reachable=yes"
