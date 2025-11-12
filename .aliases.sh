@@ -190,6 +190,7 @@ export CVSEDITOR="emacs -nw --no-init-file"
 [ -d ~/.local/bin/ ] && export PATH=~/.local/bin/:$PATH
 [ -d ~/bin/ ] && export PATH=~/bin/:$PATH
 [ -d ~/data/myPrograms/bin/ ] && export PATH=~/data/myPrograms/bin/:$PATH
+[ -d ~/AppData/Local/Packages/PythonSoftwareFoundation.Python*/LocalCache/localPython313/Scripts/ ] && export PATH=~/AppData/Local/Packages/PythonSoftwareFoundation.Python*/LocalCache/localPython313/Scripts/:$PATH
 [ -d "/usr/local/cuda/bin" ] && export PATH="/usr/local/cuda/bin:$PATH"
 [ -d /snap/bin/ ] && export PATH=/snap/bin/:$PATH
 
