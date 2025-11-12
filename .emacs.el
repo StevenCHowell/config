@@ -10,13 +10,18 @@
 ;; Comment out if you've already loaded this package...
 (require 'cl-lib)
 
-add expanded package manager
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; Initialize package management
+(require 'package)
+(setq package-enable-at-startup nil)  ;; Prevents loading packages at startup
+;; add expanded package manager
+(add-to-list 'package-archives '("melpa". "https://melpa.org/packages/") t) ;; Optional, adds MELPA repository
+(add-to-list 'package-archives '("marmalade". "http://marmalade-repo.org/packages/") t)
+(package-initialize)
 
 (defvar my-packages
-  '(ack-and-a-half auctex clojure-mode coffee-mode deft expand-region
+  '(auctex clojure-mode coffee-mode deft expand-region
                    gist groovy-mode haml-mode haskell-mode inf-ruby
-                   magit magithub markdown-mode paredit projectile python
+                   magit markdown-mode paredit projectile python
                    sass-mode rainbow-mode scss-mode solarized-theme
                    volatile-highlights yaml-mode yari zenburn-theme)
   "A list of packages to ensure are installed at launch.")
@@ -268,7 +273,7 @@ add expanded package manager
         (width . 110) (height . 90) ;; size
         ))
 ;; Enable line numbers on the LHS
-(global-linum-mode -1)
+(setq display-line-numbers 't)  ;; enable line numbers globally
 ;; Set the font to size 9 (90/10).
 (set-face-attribute 'default nil :height my-font-size)
 
@@ -363,67 +368,8 @@ add expanded package manager
 ;; Call the header line update
 (add-hook 'buffer-list-update-hook
           'sl/display-header)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Powerline theme
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; powerline theme where the modes are on the right side.
-(use-package powerline
-  :ensure t
-  :config
-  (defun powerline-right-theme ()
-    "Setup a mode-line with major and minor modes on the right side."
-    (interactive)
-    (setq-default mode-line-format
-                  '("%e"
-                    (:eval
-                     (let* ((active (powerline-selected-window-active))
-                            (mode-line-buffer-id (if active 'mode-line-buffer-id 'mode-line-buffer-id-inactive))
-                            (mode-line (if active 'mode-line 'mode-line-inactive))
-                            (face0 (if active 'powerline-active0 'powerline-inactive0))
-                            (face1 (if active 'powerline-active1 'powerline-inactive1))
-                            (face2 (if active 'powerline-active2 'powerline-inactive2))
-                            (separator-left (intern (format "powerline-%s-%s"
-                                                            (powerline-current-separator)
-                                                            (car powerline-default-separator-dir))))
-                            (separator-right (intern (format "powerline-%s-%s"
-                                                             (powerline-current-separator)
-                                                             (cdr powerline-default-separator-dir))))
-                            (lhs (list (powerline-raw "%*" face0 'l)
-                                       (powerline-buffer-size face0 'l)
-                                       (powerline-buffer-id `(mode-line-buffer-id ,face0) 'l)
-                                       (powerline-raw " ")
-                                       (funcall separator-left face0 face1)
-                                       (powerline-narrow face1 'l)
-                                       (powerline-vc face1)))
-                            (center (list (powerline-raw global-mode-string face1 'r)
-                                          (powerline-raw "%4l" face1 'r)
-                                          (powerline-raw ":" face1)
-                                          (powerline-raw "%3c" face1 'r)
-                                          (funcall separator-right face1 face0)
-                                          (powerline-raw " ")
-                                          (powerline-raw "%6p" face0 'r)
-                                          (powerline-hud face2 face1)
-                                          ))
-                            (rhs (list (powerline-raw " " face1)
-                                       (funcall separator-left face1 face2)
-                                       (when (and (boundp 'erc-track-minor-mode) erc-track-minor-mode)
-                                         (powerline-raw erc-modified-channels-object face2 'l))
-                                       (powerline-major-mode face2 'l)
-                                       (powerline-process face2)
-                                       (powerline-raw " :" face2)
-                                       (powerline-minor-modes face2 'l)
-                                       (powerline-raw " " face2)
-                                       (funcall separator-right face2 face1)
-                                       ))
-                            )
-                       (concat (powerline-render lhs)
-                               (powerline-fill-center face1 (/ (powerline-width center) 2.0))
-                               (powerline-render center)
-                               (powerline-fill face1 (powerline-width rhs))
-                               (powerline-render rhs)))))))
-  (powerline-right-theme)
-  )
+;; removed powerline-right-theme
+;; perhaps go back to this to revisit: https://github.com/nilsdeppe/MyEnvironment
 
 (provide '.emacs)
 ;;; .emacs ends here
