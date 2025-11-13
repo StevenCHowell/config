@@ -15,7 +15,6 @@
 (setq package-enable-at-startup nil)  ;; Prevents loading packages at startup
 ;; add expanded package manager
 (add-to-list 'package-archives '("melpa". "https://melpa.org/packages/") t) ;; Optional, adds MELPA repository
-(add-to-list 'package-archives '("marmalade". "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 (defvar my-packages
