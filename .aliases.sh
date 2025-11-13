@@ -195,71 +195,57 @@ export CVSEDITOR="emacs -nw --no-init-file"
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 
-# # de-duplicate pushd
-# # https://unix.stackexchange.com/a/288532/83205
-# dedup(){
-#     declare -a new=() copy=("${DIRSTACK[@]:1}")
-#     declare -A seen
-#     local v i
-#     seen[$PWD]=1
-#     for v in "${copy[@]}"
-#     do if [ -z "${seen[$v]}" ]
-#        then new+=("$v")
-#             seen[$v]=1
-#        fi
-#     done
-#     dirs -c
-#     for ((i=${#new[@]}-1; i>=0; i--))
-#     do      builtin pushd -n "${new[i]}" >/dev/null
-#     done
+# de-duplicate pushd
+# https://unix.stackexchange.com/a/288532/83205
+dedup(){
+    declare -a new=() copy=("${DIRSTACK[@]:1}")
+    declare -A seen
+    local v i
+    seen[$PWD]=1
+    for v in "${copy[@]}"
+    do if [ -z "${seen[$v]}" ]
+       then new+=("$v")
+            seen[$v]=1
+       fi
+    done
+    dirs -c
+    for ((i=${#new[@]}-1; i>=0; i--))
+    do      builtin pushd -n "${new[i]}" >/dev/null
+    done
+}
+
+# automatically activate and deactivate Python virtual environments
+function cd {
+    builtin cd "$@"
+    if [ -d "venv" ]; then
+        source venv/bin/activate
+    elif [ -d ".venv" ]; then
+        source .venv/bin/activate
+    fi
+}
+# for another option, see https://stackoverflow.com/a/50830617/3585557
+
+# pushd(){
+#     builtin pushd "$@"
+#     dedup
 # }
-#
-# # automatically activate and deactivate Python virtual environments
-# # https://stackoverflow.com/a/50830617/3585557
-# function cd() {
-#   builtin cd "$@"
-#
-#   if [[ -z "$VIRTUAL_ENV" ]] ; then
-#     ## If env folder is found then activate the vitualenv
-#       if [[ -d ./venv ]] ; then
-#         source ./venv/bin/activate
-#       fi
-#   else
-#     ## check the current folder belong to earlier VIRTUAL_ENV folder
-#     # if yes then do nothing
-#     # else deactivate
-#       parentdir="$(dirname "$VIRTUAL_ENV")"
-#       if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-#         deactivate
-#       fi
-#   fi
-# }
-#
-# # ipython
-# alias tipython="ipython --pylab"
-# alias gipython="ipython notebook --pylab=inline"
-#
-# # pushd(){
-# #     builtin pushd "$@"
-# #     dedup
-# # }
-#
-# # alias crysol="crysol -lm 50 -fb 18" #xray default
-# # alias crysol="crysol -lm 15 -fb 18" #my default (lm is important for MASSHA but takes much longer)
-# # alias crysol="crysol -lm 10 -fb 18 -sm 0.2" #my default (lm = Q_max * D_max / pi, and it is not accurate beyond 0.2)
-#
-# # # added for Launcher (https://github.com/tacc/launcher)
-# # #export LAUNCHER_JOB_FILE=<file_to_run>
-# # export LAUNCHER_WORKDIR=$HOME/data/myPrograms/launcher/
-#
-#
-# # # Compile & Debug C
-# # # alias val="valgrind --leak-check=full -v --show-reachable=yes"
-# # alias val="valgrind --tool=memcheck --leak-check=full -v --show-reachable=yes --track-origins=yes"
-# # alias valv="valgrind --verbose --tool=memcheck --leak-check=full -v --show-reachable=yes --track-origins=yes"
-# # alias gcc='gcc -ansi -std=c99 -pedantic -Wall -g'
-#
-# # # for OSPRay imcompatibility bug in VMD
-# # if [[ ( `hostname -s` = thor ) ]]; then
-# #     export VMDNOOSPRAY=1
-# # fi
+
+# alias crysol="crysol -lm 50 -fb 18" #xray default
+# alias crysol="crysol -lm 15 -fb 18" #my default (lm is important for MASSHA but takes much longer)
+# alias crysol="crysol -lm 10 -fb 18 -sm 0.2" #my default (lm = Q_max * D_max / pi, and it is not accurate beyond 0.2)
+
+# # added for Launcher (https://github.com/tacc/launcher)
+# #export LAUNCHER_JOB_FILE=<file_to_run>
+# export LAUNCHER_WORKDIR=$HOME/data/myPrograms/launcher/
+
+
+# # Compile & Debug C
+# # alias val="valgrind --leak-check=full -v --show-reachable=yes"
+# alias val="valgrind --tool=memcheck --leak-check=full -v --show-reachable=yes --track-origins=yes"
+# alias valv="valgrind --verbose --tool=memcheck --leak-check=full -v --show-reachable=yes --track-origins=yes"
+# alias gcc='gcc -ansi -std=c99 -pedantic -Wall -g'
+
+# # for OSPRay imcompatibility bug in VMD
+# if [[ ( `hostname -s` = thor ) ]]; then
+#     export VMDNOOSPRAY=1
+# fi
