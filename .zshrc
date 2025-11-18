@@ -128,10 +128,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
-[ -f "/home/schowell/.local/bin/micromamba" ] && export MAMBA_EXE=/home/schowell/.local/bin/micromamba;
+[ -f "/home/schowell/.local/bin/micromamba" ] && export MAMBA_EXE="/home/schowell/.local/bin/micromamba";
 [ -d "/home/schowell/data/myPrograms/micromamba" ] && export MAMBA_ROOT_PREFIX="/home/schowell/data/myPrograms/micromamba";
 [ -f "/home/schowell/.local/bin/micromamba" ] && export MAMBA_EXE="/home/schowell/.local/bin/micromamba";
-[-d "/home/schowell/micromamba" ] && export MAMBA_ROOT_PREFIX='/home/schowell/micromamba";
+[-d "/home/schowell/micromamba" ] && export MAMBA_ROOT_PREFIX="/home/schowell/micromamba";
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
