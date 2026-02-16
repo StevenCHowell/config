@@ -178,12 +178,12 @@ export CVSEDITOR="emacs -nw --no-init-file"
 # [ -d /opt/pgi/linux86-64/16.7/bin ] && export PATH=/opt/pgi/linux86-64/16.7/bin:$PATH
 #
 # # add to path
-# [ -d ~/.local/bin/ ] && export PATH=~/.local/bin/:$PATH
-# [ -d ~/bin/ ] && export PATH=~/bin/:$PATH
-# [ -d ~/data/myPrograms/bin/ ] && export PATH=~/data/myPrograms/bin/:$PATH
-# [ -d "/usr/local/cuda/bin" ] && export PATH="/usr/local/cuda/bin:$PATH"
-# [ -d /snap/bin/ ] && export PATH=/snap/bin/:$PATH
-#
+[ -d ~/.local/bin/ ] && export PATH=~/.local/bin/:$PATH
+[ -d ~/bin/ ] && export PATH=~/bin/:$PATH
+[ -d ~/data/myPrograms/bin/ ] && export PATH=~/data/myPrograms/bin/:$PATH
+[ -d "/usr/local/cuda/bin" ] && export PATH="/usr/local/cuda/bin:$PATH"
+[ -d /snap/bin/ ] && export PATH=/snap/bin/:$PATH
+
 # added for CUDA
 [ -d /usr/local/cuda/lib64 ] && export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 [ -d /usr/local/cuda/bin ] && export PATH=/usr/local/cuda/bin:$PATH
@@ -249,3 +249,4 @@ function cd {
 # if [[ ( `hostname -s` = thor ) ]]; then
 #     export VMDNOOSPRAY=1
 # fi
+
