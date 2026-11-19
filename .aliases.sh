@@ -250,14 +250,18 @@ _auto_venv() {
   done
 }
 
-# Append to PROMPT_COMMAND instead of replacing it
-case ";$PROMPT_COMMAND;" in
-  *";_auto_venv;"*) ;;
-  *) PROMPT_COMMAND="_auto_venv${PROMPT_COMMAND:+;$PROMPT_COMMAND}" ;;
-esac
+# run _auto_venv on every directory change
+if [ -n "$ZSH_VERSION" ]; then
+  autoload -Uz add-zsh-hook
+  add-zsh-hook chpwd _auto_venv
+else
+    case ";$PROMPT_COMMAND;" in
+	*";_auto_venv;"*) ;;
+	*) PROMPT_COMMAND="_auto_venv${PROMPT_COMMAND:+;$PROMPT_COMMAND}" ;;
+    esac
+fi
 
-# Run on every cd
-PROMPT_COMMAND="_auto_venv"
+_auto_venv
 
 # # Compile & Debug C
 # # alias val="valgrind --leak-check=full -v --show-reachable=yes"
