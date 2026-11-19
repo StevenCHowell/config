@@ -221,21 +221,40 @@ dedup(){
 # automatically activate and deactivate Python virtual environments
 # for another option, see https://stackoverflow.com/a/50830617/3585557
 _auto_venv() {
+  # Only do work when the directory actually changed
+  [ "$PWD" = "$_AUTO_VENV_LAST_PWD" ] && return
+  _AUTO_VENV_LAST_PWD="$PWD"
+
+  # If a venv is active, deactivate it once we've left its project directory
   if [ -n "$VIRTUAL_ENV" ]; then
-    # Already in a venv — check if we are leaving it
-    if [ "$(dirname "$VIRTUAL_ENV")" != "$(cd "$(dirname "$PWD")" && pwd)" ]; then
-      deactivate
-    fi
-  else
-    # No venv — check if current dir has .venv
-    if [ -d ".venv/bin/activate" ]; then
-      source .venv/bin/activate
-    fi
-    if [ -d ".venv/Scripts/activate" ]; then
-      source .venv/Scripts/activate
-    fi
+    local project_dir
+    project_dir="$(dirname "$VIRTUAL_ENV")"
+    case "$PWD/" in
+      "$project_dir"/*) return ;;   # still inside the project; keep it active
+    esac
+    deactivate
   fi
+
+  # Look for a .venv in the current directory or any parent
+  local dir="$PWD"
+  while [ -n "$dir" ]; do
+    if [ -f "$dir/.venv/bin/activate" ]; then
+      source "$dir/.venv/bin/activate"
+      return
+    elif [ -f "$dir/.venv/Scripts/activate" ]; then
+      source "$dir/.venv/Scripts/activate"
+      return
+    fi
+    [ "$dir" = "/" ] && break
+    dir="$(dirname "$dir")"
+  done
 }
+
+# Append to PROMPT_COMMAND instead of replacing it
+case ";$PROMPT_COMMAND;" in
+  *";_auto_venv;"*) ;;
+  *) PROMPT_COMMAND="_auto_venv${PROMPT_COMMAND:+;$PROMPT_COMMAND}" ;;
+esac
 
 # Run on every cd
 PROMPT_COMMAND="_auto_venv"
