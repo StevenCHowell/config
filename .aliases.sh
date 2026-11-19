@@ -213,40 +213,35 @@ dedup(){
     do      builtin pushd -n "${new[i]}" >/dev/null
     done
 }
-
-# automatically activate and deactivate Python virtual environments
-function cd {
-    builtin cd "$@"
-    if [ -d "venv" ]; then
-        source venv/bin/activate
-    elif [ -d ".venv" ]; then
-        source .venv/bin/activate
-    fi
-}
-# for another option, see https://stackoverflow.com/a/50830617/3585557
-
 # pushd(){
 #     builtin pushd "$@"
 #     dedup
 # }
 
-# alias crysol="crysol -lm 50 -fb 18" #xray default
-# alias crysol="crysol -lm 15 -fb 18" #my default (lm is important for MASSHA but takes much longer)
-# alias crysol="crysol -lm 10 -fb 18 -sm 0.2" #my default (lm = Q_max * D_max / pi, and it is not accurate beyond 0.2)
+# automatically activate and deactivate Python virtual environments
+# for another option, see https://stackoverflow.com/a/50830617/3585557
+_auto_venv() {
+  if [ -n "$VIRTUAL_ENV" ]; then
+    # Already in a venv — check if we are leaving it
+    if [ "$(dirname "$VIRTUAL_ENV")" != "$(cd "$(dirname "$PWD")" && pwd)" ]; then
+      deactivate
+    fi
+  else
+    # No venv — check if current dir has .venv
+    if [ -d ".venv/bin/activate" ]; then
+      source .venv/bin/activate
+    fi
+    if [ -d ".venv/Scripts/activate" ]; then
+      source .venv/Scripts/activate
+    fi
+  fi
+}
 
-# # added for Launcher (https://github.com/tacc/launcher)
-# #export LAUNCHER_JOB_FILE=<file_to_run>
-# export LAUNCHER_WORKDIR=$HOME/data/myPrograms/launcher/
-
+# Run on every cd
+PROMPT_COMMAND="_auto_venv"
 
 # # Compile & Debug C
 # # alias val="valgrind --leak-check=full -v --show-reachable=yes"
 # alias val="valgrind --tool=memcheck --leak-check=full -v --show-reachable=yes --track-origins=yes"
 # alias valv="valgrind --verbose --tool=memcheck --leak-check=full -v --show-reachable=yes --track-origins=yes"
 # alias gcc='gcc -ansi -std=c99 -pedantic -Wall -g'
-
-# # for OSPRay imcompatibility bug in VMD
-# if [[ ( `hostname -s` = thor ) ]]; then
-#     export VMDNOOSPRAY=1
-# fi
-
